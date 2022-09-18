@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+	<property name="LOG-PATH" value="/LG-MCS/logs" />
+	<property name="LOG-PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %5p [%t][%c{2}] %m%n" />
+	<timestamp key="timestamp" datePattern="HHmm" />
+		
+	<springProperty name="DRIVER-CLASS" source="spring.datasource.driver-class-name" />
+	<springProperty name="URL" source="spring.datasource.url" />
+	<springProperty name="USERNAME" source="spring.datasource.username" />
+	<springProperty name="PASSWORD" source="spring.datasource.password" />
+	
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>${LOG-PATTERN}</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ROLLING_FILE_HOUR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG-PATH}/logback-hour.log</file>
+        <append>false</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> 
+			<fileNamePattern>${LOG-PATH}/logback-hour-%d{yyyyMMddHH}-%i.log</fileNamePattern>
+	        <maxHistory>168</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+				<maxFileSize>20MB</maxFileSize> 
+			</timeBasedFileNamingAndTriggeringPolicy> 
+			<cleanHistoryOnStart>true</cleanHistoryOnStart>
+		</rollingPolicy> 
+        <encoder>
+            <Pattern>${LOG-PATTERN}</Pattern>
+        </encoder>
+    </appender>
+	
+
+
+	
+
+	<!-- Root Logger -->	
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="ROLLING_FILE_HOUR" />
+        	<!--<appender-ref ref="DB" /> -->
+    </root>	
+</configuration>
