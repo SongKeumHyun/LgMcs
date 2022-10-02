@@ -1,14 +1,15 @@
 package com.lgcns.mcs.entity;
 
-import com.lgcns.mcs.interfaces.ILgLocationObject;
-import com.lgcns.mcs.interfaces.ILgMcsPersistence;
-
 import javax.persistence.*;
-import javax.transaction.Transactional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import lombok.Getter;
+import lombok.Setter;
 
+
+
+@Getter
+@Setter
 @Entity
 @Table(name="TB_CARRIER")
 public class Carrier {
@@ -16,26 +17,14 @@ public class Carrier {
 	private static final Logger logger = LoggerFactory.getLogger(Carrier.class);
 	
 	@Id @GeneratedValue
-	private String mcsObjectId;
+	private Long mcsObjectId;
 	
-	
-	public void setMcsObjectId(String mcsObjectId) {
-		this.mcsObjectId = mcsObjectId;
-	}
+	private String carrierId="";
 
-	public String getMcsObjectId() {
-		return mcsObjectId;
-	}
+	private String carrierState="";
+
+
 
 	
-
-	private String carrierId;
-	public String getCarrierId() {
-		return carrierId;
-	}
-
-	public void setCarrierId(String carrierId) {
-		this.carrierId = carrierId;
-	} 
 
 }

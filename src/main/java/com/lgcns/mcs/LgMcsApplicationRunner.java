@@ -10,7 +10,12 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import com.lgcns.mcs.constant.McsConstant;
 import com.lgcns.mcs.entity.Carrier;
+
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Component
 @Transactional
@@ -27,8 +32,11 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		logger.info("MCS Application Runner 실행"	);
 		
 		Carrier carrier = new Carrier();
-		carrier.setCarrierId("Song");
 		
+		carrier.setCarrierId("A");
+		carrier.setCarrierState(McsConstant.CARRIER.State.Install);
+		
+	
 		entityManager.persist(carrier);
 
 		
