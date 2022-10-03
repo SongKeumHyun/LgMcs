@@ -27,15 +27,12 @@ public class ScheduleService {
 
 	
 	
-	@Scheduled(fixedDelay = 10000)
+	@Scheduled(fixedDelay = 100000)
     public void scheduleFixedDelayTask() throws InterruptedException 
 	{
 		logger.info("------------- Scheduling ------------");
 		
-		String carrierId = manager.getCarrierService().getCarrier("TEST Carrier");
-		
-		logger.info(" 가져온 Carreir ID " + carrierId);
-		
+
 		
         Thread.sleep(5000);
     }
