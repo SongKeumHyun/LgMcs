@@ -1,23 +1,27 @@
 package com.lgcns.mcs.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import antlr.collections.List;
+import com.lgcns.mcs.interfaces.ICarrier;
+
 import lombok.Getter;
 import lombok.Setter;
 
 
 
+/**
+ * @author kumh2
+ *
+ */
 @Getter
 @Setter
 @Entity
 @Table(name="TB_CARRIER")
-public class Carrier {
+public class Carrier implements ICarrier {
 
 	private static final Logger logger = LoggerFactory.getLogger(Carrier.class);
 	
@@ -25,15 +29,59 @@ public class Carrier {
 	 @Id
 	private String carrierId="";
 
-	private String carrierState="";
-	
-	private Location location = new Location();
-	
+	private CarrierState carrierState= CarrierState.Installed;
+
 	private String lotId = "";
 	
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date createdTime = new Date();
+	private Date installTime = new Date();
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date chagedDataTime = new Date();
+
+	@Override
+	public Date getInstallTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void setInstallTime(Date installTime) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void setDataChangedTime(Date changedTime) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	@Override
+	public Date getChangedTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public CarrierState getCurrentCarrierState() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void setCarreirState(CarrierState carrierState) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 
 
 
