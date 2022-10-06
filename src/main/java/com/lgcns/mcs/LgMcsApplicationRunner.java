@@ -10,12 +10,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.lgcns.mcs.constant.McsConstant;
 import com.lgcns.mcs.entity.Carrier;
 import com.lgcns.mcs.entity.SubStrate;
 
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Component
@@ -35,7 +32,7 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		Carrier carrier = new Carrier();
 		
 		carrier.setCarrierId("CST1");
-		carrier.setCarrierState(McsConstant.CARRIER.State.Install);
+		
 
 		SubStrate subStrate = new SubStrate();
 		subStrate.setSubStrateId("subStratt1");
