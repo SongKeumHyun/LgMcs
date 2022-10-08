@@ -6,12 +6,14 @@ import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.entity.Carrier;
 import com.lgcns.mcs.entity.SubStrate;
+import com.lgcns.mcs.interfaces.ICarrierRepository;
 
 
 
@@ -21,8 +23,8 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(LgMcsApplicationRunner.class);
 	
-	@PersistenceContext
-	EntityManager entityManager;
+	@Autowired
+	ICarrierRepository carrierRepoistory;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -31,15 +33,16 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		
 		Carrier carrier = new Carrier();
 		
+		
+		
 		carrier.setCarrierId("CST1");
 		
-
-		SubStrate subStrate = new SubStrate();
-		subStrate.setSubStrateId("subStratt1");
-		subStrate.setCarreir(carrier);
+		carrierRepoistory.save(carrier);
+		
+		
+		carrierRepoistory.findAll().forEach(System.out::println);
 	
-		entityManager.persist(carrier);
-		entityManager.persist(subStrate);
+
 
 		
 		logger.info("MCS Application Runner 종료"	);

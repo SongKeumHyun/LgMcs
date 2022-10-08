@@ -6,10 +6,12 @@ import javax.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.lgcns.mcs.eventHandler.CarrierEventLisner;
 import com.lgcns.mcs.interfaces.ICarrier;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 
 
@@ -19,9 +21,16 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name="TB_CARRIER")
 public class Carrier implements ICarrier {
+
+	public Carrier()
+	{
+		
+	}
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(Carrier.class);
 	
@@ -40,6 +49,15 @@ public class Carrier implements ICarrier {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date chagedDataTime = new Date();
 
+	@Transient
+	private CarrierEventLisner eventListener;
+	
+	private void OnChangedCarrier()
+	{
+		//eventListener.onEvent("Event");
+	}
+    
+
 	@Override
 	public Date getInstallTime() {
 		// TODO Auto-generated method stub
@@ -56,7 +74,9 @@ public class Carrier implements ICarrier {
 
 	@Override
 	public void setDataChangedTime(Date changedTime) {
+		
 		// TODO Auto-generated method stub
+		OnChangedCarrier();
 		
 	}
 	
