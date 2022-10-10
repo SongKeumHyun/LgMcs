@@ -1,17 +1,19 @@
 package com.lgcns.mcs;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.entity.Carrier;
-import com.lgcns.mcs.entity.SubStrate;
+import com.lgcns.mcs.services.CarrierService;
+import com.lgcns.mcs.services.McsServiceFactory;
+import com.lgcns.mcs.services.ILgMcsService.ServiceType;
 
 
 
@@ -21,25 +23,30 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(LgMcsApplicationRunner.class);
 	
-	@PersistenceContext
-	EntityManager entityManager;
+	@Autowired
+	private final McsServiceFactory mcsServiceFactory = null;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
 		logger.info("MCS Application Runner 실행"	);
 		
-		Carrier carrier = new Carrier();
+		CarrierService carrierService =  (CarrierService)mcsServiceFactory.getService(ServiceType.CarrierService);
 		
-		carrier.setCarrierId("CST1");
+		
+		Carrier carrier = new Carrier();
+
+
+		carrier.setCarrierId("TESTCST1");
+		
+		carrierService.save(carrier);
 		
 
-		SubStrate subStrate = new SubStrate();
-		subStrate.setSubStrateId("subStratt1");
-		subStrate.setCarreir(carrier);
+		
+		
+//		carrierRepoistory.findAll().forEach(System.out::println);
 	
-		entityManager.persist(carrier);
-		entityManager.persist(subStrate);
+
 
 		
 		logger.info("MCS Application Runner 종료"	);

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service("MCSConstants")
 public class McsConstant {
-	
+	/*
 	public final static class CARRIER
 	{
 		
@@ -18,5 +18,6 @@ public class McsConstant {
 			
 		
 	}
+	*/
 
 }
