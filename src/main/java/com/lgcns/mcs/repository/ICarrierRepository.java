@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.lgcns.mcs.interfaces;
+package com.lgcns.mcs.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

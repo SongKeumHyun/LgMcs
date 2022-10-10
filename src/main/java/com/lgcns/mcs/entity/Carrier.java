@@ -31,7 +31,6 @@ public class Carrier implements ICarrier {
 		
 	}
 	
-
 	private static final Logger logger = LoggerFactory.getLogger(Carrier.class);
 	
 

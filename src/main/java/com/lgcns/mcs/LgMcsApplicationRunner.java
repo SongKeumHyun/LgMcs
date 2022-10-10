@@ -1,7 +1,6 @@
 package com.lgcns.mcs;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
@@ -12,8 +11,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.entity.Carrier;
-import com.lgcns.mcs.entity.SubStrate;
-import com.lgcns.mcs.interfaces.ICarrierRepository;
+import com.lgcns.mcs.services.CarrierService;
+import com.lgcns.mcs.services.McsServiceFactory;
+import com.lgcns.mcs.services.ILgMcsService.ServiceType;
 
 
 
@@ -24,23 +24,27 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 	private static final Logger logger = LoggerFactory.getLogger(LgMcsApplicationRunner.class);
 	
 	@Autowired
-	ICarrierRepository carrierRepoistory;
+	private final McsServiceFactory mcsServiceFactory = null;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
 		logger.info("MCS Application Runner 실행"	);
 		
+		CarrierService carrierService =  (CarrierService)mcsServiceFactory.getService(ServiceType.CarrierService);
+		
+		
 		Carrier carrier = new Carrier();
+
+
+		carrier.setCarrierId("TESTCST1");
+		
+		carrierService.save(carrier);
+		
+
 		
 		
-		
-		carrier.setCarrierId("CST1");
-		
-		carrierRepoistory.save(carrier);
-		
-		
-		carrierRepoistory.findAll().forEach(System.out::println);
+//		carrierRepoistory.findAll().forEach(System.out::println);
 	
 
 
