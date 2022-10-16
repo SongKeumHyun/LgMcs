@@ -5,6 +5,9 @@ import java.util.Date;
 import javax.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.AbstractAggregateRoot;
+
+import com.lgcns.mcs.event.CarrierEvent;
 import com.lgcns.mcs.interfaces.ICarrier;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +24,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name="TB_CARRIER")
-public class Carrier implements ICarrier {
+public class Carrier extends AbstractAggregateRoot<Carrier> implements ICarrier  {
 
 	public Carrier()
 	{
@@ -45,49 +48,14 @@ public class Carrier implements ICarrier {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date chagedDataTime = new Date();
 
-
 	@Override
-	public Date getInstallTime() {
+	public void enventPublish() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void setInstallTime(Date installTime) {
-		// TODO Auto-generated method stub
+		this.registerEvent(new CarrierEvent(this));
 		
 	}
 
 
-	@Override
-	public void setDataChangedTime(Date changedTime) {
-		
-		// TODO Auto-generated method stub
-		
-	}
-	
-
-	@Override
-	public Date getChangedTime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public CarrierState getCurrentCarrierState() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void setCarreirState(CarrierState carrierState) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 
 
 
