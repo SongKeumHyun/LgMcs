@@ -3,6 +3,7 @@
  */
 package com.lgcns.mcs.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -59,7 +60,8 @@ public class Zone implements IZone {
 	private int currentCapa;
 	
 
-	private List<Shelf> shlefs;
+	@OneToMany(mappedBy ="zone") // 상대편의 Map
+	private List<Shelf> shlefs = new ArrayList<Shelf>();
 	
 	@Enumerated(EnumType.STRING)
 	private ServiceStatus serviceStatus;

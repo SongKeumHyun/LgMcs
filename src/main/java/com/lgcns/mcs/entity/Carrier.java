@@ -7,8 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
+import com.lgcns.mcs.constant.McsConstant.Location;
 import com.lgcns.mcs.event.CarrierEvent;
 import com.lgcns.mcs.interfaces.ICarrier;
+import com.lgcns.mcs.tool.BooleanToYNConverter;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -49,6 +52,7 @@ public class Carrier extends AbstractAggregateRoot<Carrier> implements ICarrier 
 	
 	private String carrierId="";
 
+    @Enumerated(EnumType.STRING)
 	private CarrierState carrierState= CarrierState.Installed;
 
 	private String lotId = "";
@@ -63,7 +67,11 @@ public class Carrier extends AbstractAggregateRoot<Carrier> implements ICarrier 
 	 * MES 요청에 의한 Move 금지 여부
 	 * True is Holded
 	 */
-	private boolean isHold = false;
+	@Convert(converter = BooleanToYNConverter.class)
+	private boolean isHold;
+	
+	@Embedded
+	private Location location;
 	
 
 	@Temporal(TemporalType.TIMESTAMP)

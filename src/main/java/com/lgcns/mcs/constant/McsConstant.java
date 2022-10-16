@@ -1,6 +1,11 @@
 package com.lgcns.mcs.constant;
 
+import javax.persistence.Embeddable;
+
 import org.springframework.stereotype.Service;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Service("MCSConstants")
 public class McsConstant {
@@ -31,6 +36,30 @@ public class McsConstant {
 		Inservice,
 		OutOfService
 	}
+	
 
+	/**
+	*
+	* @Package_name
+	* com.lgcns.mcs.constant
+	* @file_name
+	* McsConstant.java
+	* @Date
+	* 2022. 10. 16.
+	* @EditHistory
+	*
+	* @Discript
+	*
+	*/
+	@Getter
+	@Setter
+	@Embeddable
+	public class Location
+	{
 
+		private String EquipmentId;
+		
+		private String UnitId;
+		
+	}
 }
