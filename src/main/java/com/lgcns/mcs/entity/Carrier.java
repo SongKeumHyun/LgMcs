@@ -16,9 +16,18 @@ import lombok.ToString;
 
 
 /**
- * @author kumh2
- *
- */
+*
+* @Package_name
+* com.lgcns.mcs.entity
+* @file_name
+* Carrier.java
+* @Date
+* 2022. 10. 16.
+* @EditHistory
+*
+* @Discript
+*
+*/
 @Getter
 @Setter
 @ToString
@@ -34,12 +43,27 @@ public class Carrier extends AbstractAggregateRoot<Carrier> implements ICarrier 
 	private static final Logger logger = LoggerFactory.getLogger(Carrier.class);
 	
 
-	 @Id
+	 
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	private String carrierId="";
 
 	private CarrierState carrierState= CarrierState.Installed;
 
 	private String lotId = "";
+	
+	
+	/**
+	 * @Field
+	 * isHold
+	 * @Type
+	 * boolean
+	 * @Description
+	 * MES 요청에 의한 Move 금지 여부
+	 * True is Holded
+	 */
+	private boolean isHold = false;
 	
 
 	@Temporal(TemporalType.TIMESTAMP)

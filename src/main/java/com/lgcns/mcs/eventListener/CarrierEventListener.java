@@ -10,10 +10,20 @@ import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.event.CarrierEvent;
 
+
 /**
- * @author kumh2
- *
- */
+*
+* @Package_name
+* com.lgcns.mcs.eventListener
+* @file_name
+* CarrierEventListener.java
+* @Date
+* 2022. 10. 16.
+* @EditHistory
+*
+* @Discript
+*
+*/
 @Component
 public class CarrierEventListener implements ApplicationListener<CarrierEvent>{
 

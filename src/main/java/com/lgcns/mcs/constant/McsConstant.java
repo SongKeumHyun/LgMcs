@@ -25,6 +25,12 @@ public class McsConstant {
 		UR,
 		WAIT
 	}
+	
+	public enum ServiceStatus
+	{
+		Inservice,
+		OutOfService
+	}
 
 
 }
