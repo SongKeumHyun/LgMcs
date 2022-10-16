@@ -12,6 +12,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -56,6 +58,10 @@ public class Shelf implements IShelf {
 	
 	@Enumerated(EnumType.STRING)
 	private ServiceStatus serviceStatus;
+	
+	@ManyToOne
+	@JoinColumn(name = "ZONE_NAME")
+	private Zone zone;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
