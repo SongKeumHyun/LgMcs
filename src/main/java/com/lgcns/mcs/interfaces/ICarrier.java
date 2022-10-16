@@ -21,22 +21,9 @@ public interface ICarrier extends ILgLocationObject {
 		Alternate,
 		Completed
 	}
+	
+	public void enventPublish();
 
-	String getCarrierId();
-	
-	void setCarrierId(String carrierId);
-	
-	Date getInstallTime();
-	
-	void setInstallTime(Date installTime);
-	
-	void setDataChangedTime(Date changedTime);
-	
-	Date getChangedTime();
-	
-	CarrierState getCurrentCarrierState();
-	
-	void setCarreirState(CarrierState carrierState);
 	
 	
 }

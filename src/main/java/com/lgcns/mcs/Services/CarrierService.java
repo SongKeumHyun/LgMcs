@@ -1,12 +1,16 @@
 package com.lgcns.mcs.services;
 
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lgcns.mcs.entity.Carrier;
+
+import com.lgcns.mcs.interfaces.ICarrier.CarrierState;
 import com.lgcns.mcs.repository.ICarrierRepository;
 
 
@@ -20,17 +24,16 @@ public class CarrierService implements ILgMcsService {
 	@Autowired
 	private final ICarrierRepository carrierRepository = null;
 	
-    @SuppressWarnings("deprecation")
+
+
 	public Carrier getCarrier(String carrierId)
 	{
-    	try
-    	{
-    		return carrierRepository.getById(carrierId);
-		
-    	}catch ( javax.persistence.EntityNotFoundException e) {
-    		logger.error(carrierId + "찾는 Carrier ID가 없어서 Null을 리턴 하였습니다.");
-			return null;
-		}
+		return carrierRepository.findOneByCarrierId(carrierId);
+	}
+	
+	public List<Carrier> getCarreirByCarriersState(CarrierState state)
+	{
+		return carrierRepository.findByCarrierState(state);
 	}
     
     public void save(Carrier carrier)

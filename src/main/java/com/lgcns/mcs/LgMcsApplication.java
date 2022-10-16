@@ -3,9 +3,8 @@ package com.lgcns.mcs;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +13,7 @@ import org.slf4j.LoggerFactory;
 @SpringBootApplication
 public class LgMcsApplication {
 	private static final Logger logger = LoggerFactory.getLogger(LgMcsApplication.class);
+	
 	
 
 

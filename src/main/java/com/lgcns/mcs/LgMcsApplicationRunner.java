@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.entity.Carrier;
@@ -39,6 +40,7 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 
 		carrier.setCarrierId("TESTCST1");
 		
+		carrier.enventPublish();
 		carrierService.save(carrier);
 		
 
