@@ -40,10 +40,10 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 
 		carrier.setCarrierId("TESTCST1");
 		
-		carrier.enventPublish();
-		carrierService.save(carrier);
 		
-
+		carrier.enventPublish();
+		
+		carrierService.save(carrier);
 		
 		
 //		carrierRepoistory.findAll().forEach(System.out::println);

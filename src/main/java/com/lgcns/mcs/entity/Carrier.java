@@ -51,8 +51,7 @@ public class Carrier extends AbstractAggregateRoot<Carrier> implements ICarrier 
 	@Override
 	public void enventPublish() {
 		// TODO Auto-generated method stub
-		CarrierEvent e = new CarrierEvent(this);
-		this.registerEvent(e);
+		this.registerEvent(new CarrierEvent(this));
 		
 	}
 
