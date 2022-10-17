@@ -13,7 +13,7 @@ import com.lgcns.mcs.entity.SubStrate;
  * @author kumh2
  *
  */
-public interface ISubStrateRepository extends JpaRepository<SubStrate, String> {
+public interface ISubStrateRepository extends JpaRepository<SubStrate, Long> {
 	
 
 }

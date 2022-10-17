@@ -12,8 +12,12 @@ import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.entity.Carrier;
+import com.lgcns.mcs.entity.Shelf;
+import com.lgcns.mcs.entity.Zone;
 import com.lgcns.mcs.services.CarrierService;
 import com.lgcns.mcs.services.McsServiceFactory;
+import com.lgcns.mcs.services.ShelfService;
+import com.lgcns.mcs.services.ZoneService;
 import com.lgcns.mcs.services.ILgMcsService.ServiceType;
 
 
@@ -32,18 +36,29 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		
 		logger.info("MCS Application Runner 실행"	);
 		
-		CarrierService carrierService =  (CarrierService)mcsServiceFactory.getService(ServiceType.CarrierService);
+		//CarrierService carrierService =  (CarrierService)mcsServiceFactory.getService(ServiceType.CarrierService);
+		
+		ShelfService shelfService = (ShelfService)mcsServiceFactory.getService(ServiceType.ShelfServe);
+		ZoneService zoneService = (ZoneService)mcsServiceFactory.getService(ServiceType.ZoneService);
+		
+		Shelf shelf1 = new Shelf();
+		shelf1.setShelfId("1");
+		shelfService.save(shelf1);
+		
+		Shelf shelf2 = new Shelf();
+		shelf2.setShelfId("2");
+		shelfService.save(shelf2);
+		
+		Zone zone = new Zone();
+		
+		zone.setZoneName("HZONE");
+		zoneService.save(zone);
+		
+		shelf1.setZone(zone);
+		shelfService.save(shelf1);
 		
 		
-		Carrier carrier = new Carrier();
-
-
-		carrier.setCarrierId("TESTCST1");
 		
-		
-		carrier.enventPublish();
-		
-		carrierService.save(carrier);
 		
 		
 //		carrierRepoistory.findAll().forEach(System.out::println);

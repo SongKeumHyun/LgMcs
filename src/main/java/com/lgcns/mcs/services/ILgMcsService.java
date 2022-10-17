@@ -13,7 +13,9 @@ public interface ILgMcsService {
 	    CarrierService,
 	    SubStrateService,
 	    EquipmentService,
-	    TransferService
+	    TransferService,
+	    ZoneService,
+	    ShelfServe
 	}
 	
 	ServiceType getServiceTeye();
