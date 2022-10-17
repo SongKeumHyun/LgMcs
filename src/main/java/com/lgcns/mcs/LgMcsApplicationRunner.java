@@ -58,6 +58,8 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		shelfService.save(shelf1);
 		
 		
+		logger.info("가져온 Zone 이름은" + shelf1.getZone().getZoneName());
+		
 		
 		
 		
