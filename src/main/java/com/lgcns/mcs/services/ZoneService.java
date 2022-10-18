@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import com.lgcns.mcs.entity.Carrier;
 import com.lgcns.mcs.entity.Zone;
 import com.lgcns.mcs.repository.ICarrierRepository;
+import com.lgcns.mcs.repository.IShelfRepository;
 import com.lgcns.mcs.repository.IZoneRepository;
 
 import lombok.Getter;
