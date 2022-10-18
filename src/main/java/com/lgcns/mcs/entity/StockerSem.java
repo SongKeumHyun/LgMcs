@@ -32,5 +32,7 @@ import javax.persistence.Entity;
 */
 @Entity(name = "TB_STOCKER_SEM")
 public class StockerSem extends Equipment {
+	
+
 
 }

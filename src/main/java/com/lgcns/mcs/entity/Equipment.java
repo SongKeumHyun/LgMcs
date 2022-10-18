@@ -47,11 +47,10 @@ import lombok.ToString;
 * @Discript
 *
 */
-@Entity(name = "TB_EQUIPMENT")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Setter
 @ToString
+@Entity(name = "TB_EQUIPMENT")
 public abstract class Equipment {
 	
 	@Id
