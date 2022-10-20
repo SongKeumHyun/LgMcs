@@ -50,6 +50,7 @@ public class Carrier extends AbstractAggregateRoot<Carrier> implements ICarrier 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(nullable = false, unique = true)
 	private String carrierId="";
 
     @Enumerated(EnumType.STRING)

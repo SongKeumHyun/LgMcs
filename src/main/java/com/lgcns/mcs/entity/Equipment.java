@@ -17,6 +17,7 @@ package com.lgcns.mcs.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -57,6 +58,7 @@ public abstract class Equipment {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(nullable = false, unique = true)
 	private String equipmentId;
 	
 	@Enumerated(EnumType.STRING)

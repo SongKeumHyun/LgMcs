@@ -43,7 +43,7 @@ public class CarrierService implements ILgMcsService {
     		carrierRepository.save(carrier);
     		logger.info("Carrier가 저장 되었습니다." + carrier.toString());
     	}catch (Exception e) {
-			logger.error("Carrier ID {0}에 저장을 실패 하였습니다.",carrier.toString());
+			logger.error("Carrier ID  저장을 실패 하였습니다."+carrier.toString()+ e.toString());
 		}
     	
     	

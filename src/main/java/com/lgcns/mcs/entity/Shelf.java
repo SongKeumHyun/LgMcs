@@ -68,7 +68,7 @@ public class Shelf implements IShelf {
 	private String shelfId;
 
 	@OneToOne
-	@JoinTable(name = "SHELF_CARRIER", joinColumns = @JoinColumn(name = "SHELF_ID"), inverseJoinColumns = @JoinColumn(name = "CARRIER_ID"))
+	@JoinColumn(name = "CARRIER_ID")
 	private Carrier carrier;
 
 	
