@@ -47,11 +47,12 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name="TB_ZONE")
-public class Zone implements IZone {
+public class Zone  {
 	private static final Logger logger = LoggerFactory.getLogger(Zone.class);
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	
 	private String zoneName;
 	
@@ -60,8 +61,8 @@ public class Zone implements IZone {
 	private int currentCapa;
 	
 
-	@OneToMany(mappedBy ="zone") // 상대편의 Map
-	private List<Shelf> shlefs = new ArrayList<Shelf>();
+//	@OneToMany(mappedBy ="zone") // 상대편의 Map
+//	private List<Shelf> shlefs = new ArrayList<Shelf>();
 	
 	@Enumerated(EnumType.STRING)
 	private ServiceStatus serviceStatus;

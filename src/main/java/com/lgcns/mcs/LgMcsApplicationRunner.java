@@ -54,11 +54,11 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		zone.setZoneName("HZONE");
 		zoneService.save(zone);
 		
-		shelf1.setZone(zone);
+		
 		shelfService.save(shelf1);
 		
 		
-		logger.info("가져온 Zone 이름은" + shelf1.getZone().getZoneName());
+		
 		
 		
 		

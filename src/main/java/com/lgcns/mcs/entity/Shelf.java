@@ -6,12 +6,14 @@ package com.lgcns.mcs.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
@@ -65,6 +67,13 @@ public class Shelf implements IShelf {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@OneToOne
+    @JoinColumn (name = "EQUIPMENT_ID") 
+	private StockerSem stockerSem;
+	 	
+	
+	
+	@Column(nullable = false)
 	private String shelfId;
 
 	@OneToOne
@@ -75,16 +84,36 @@ public class Shelf implements IShelf {
 	@Enumerated(EnumType.STRING)
 	private ServiceStatus serviceStatus = ServiceStatus.Inservice ;
 	
-	@ManyToOne
-	@JoinColumn(name = "ZONE_NAME")
-	private Zone zone;
-	
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date installTime = new Date();
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date chagedDataTime = new Date();
+	
+	
+	public String getOwnerStockerName()
+	{
+		return null; //this.stockerSem.equipmentName;
+	}
+	
+	/**
+	* @Method
+	* getCarrierId
+	* @Date
+	* 2022. 10. 28.
+	* @Writter
+	* kumh2
+	* @EditHistory
+	*
+	* @Discript
+	*
+	* @return 찾는 Carrier가 없다면 Empty String인 ""를 리턴 함
+	*/
+	public String getCarrierId()
+	{
+		return null ;//this.carrier == null ? "" : this.carrier.getCarrierId() ;
+	}
 	
 
 }
