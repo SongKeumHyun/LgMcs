@@ -13,8 +13,10 @@ import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.entity.Carrier;
 import com.lgcns.mcs.entity.Shelf;
+import com.lgcns.mcs.entity.StockerSem;
 import com.lgcns.mcs.entity.Zone;
 import com.lgcns.mcs.services.CarrierService;
+import com.lgcns.mcs.services.EquipmentService;
 import com.lgcns.mcs.services.McsServiceFactory;
 import com.lgcns.mcs.services.ShelfService;
 import com.lgcns.mcs.services.ZoneService;
@@ -40,26 +42,26 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		
 		ShelfService shelfService = (ShelfService)mcsServiceFactory.getService(ServiceType.ShelfServe);
 		ZoneService zoneService = (ZoneService)mcsServiceFactory.getService(ServiceType.ZoneService);
+		EquipmentService equipmentService =  (EquipmentService)mcsServiceFactory.getService(ServiceType.EquipmentService);
 		
-		Shelf shelf1 = new Shelf();
-		shelf1.setShelfId("1");
-		shelfService.save(shelf1);
-		
-		Shelf shelf2 = new Shelf();
-		shelf2.setShelfId("2");
-		shelfService.save(shelf2);
+		StockerSem sem = new StockerSem();
+		sem.setEquipmentId("OBJ01");
+		sem.setEquipmentName("STK0100");
 		
 		Zone zone = new Zone();
+		zone.setZoneName("DZONE01");
+		zone.setStockerSem(sem);
+		zoneService.save(zone);		
 		
-		zone.setZoneName("HZONE");
-		zoneService.save(zone);
+		equipmentService.save(sem);
+
+		
+
+
 		
 		
-		shelfService.save(shelf1);
-		
-		
-		
-		
+
+		logger.info("EQP와  Zone 만들어 졌나?"	);
 		
 		
 		
