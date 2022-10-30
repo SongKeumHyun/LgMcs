@@ -7,12 +7,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -47,21 +51,28 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name="TB_ZONE")
-public class Zone implements IZone {
+public class Zone  {
 	private static final Logger logger = LoggerFactory.getLogger(Zone.class);
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@ManyToOne
+	@JoinColumns({@JoinColumn( name ="EQUIPMENT_ID",referencedColumnName = "EQUIPMENT_ID")})
+	private StockerSem stockerSem;
+	
+	@Column(nullable = false)
 	private String zoneName;
+	
+	
 	
 	private int maxCapa;
 	
 	private int currentCapa;
 	
 
-	@OneToMany(mappedBy ="zone") // 상대편의 Map
-	private List<Shelf> shlefs = new ArrayList<Shelf>();
+//	@OneToMany(mappedBy ="zone") // 상대편의 Map
+//	private List<Shelf> shlefs = new ArrayList<Shelf>();
 	
 	@Enumerated(EnumType.STRING)
 	private ServiceStatus serviceStatus;

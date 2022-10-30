@@ -13,8 +13,10 @@ import org.springframework.stereotype.Component;
 
 import com.lgcns.mcs.entity.Carrier;
 import com.lgcns.mcs.entity.Shelf;
+import com.lgcns.mcs.entity.StockerSem;
 import com.lgcns.mcs.entity.Zone;
 import com.lgcns.mcs.services.CarrierService;
+import com.lgcns.mcs.services.EquipmentService;
 import com.lgcns.mcs.services.McsServiceFactory;
 import com.lgcns.mcs.services.ShelfService;
 import com.lgcns.mcs.services.ZoneService;
@@ -40,26 +42,42 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		
 		ShelfService shelfService = (ShelfService)mcsServiceFactory.getService(ServiceType.ShelfServe);
 		ZoneService zoneService = (ZoneService)mcsServiceFactory.getService(ServiceType.ZoneService);
+		EquipmentService equipmentService =  (EquipmentService)mcsServiceFactory.getService(ServiceType.EquipmentService);
 		
-		Shelf shelf1 = new Shelf();
-		shelf1.setShelfId("1");
-		shelfService.save(shelf1);
+		StockerSem sem = new StockerSem();
+		sem.setEquipmentId("OBJ01");
+		sem.setEquipmentName("STK0100");
 		
-		Shelf shelf2 = new Shelf();
-		shelf2.setShelfId("2");
-		shelfService.save(shelf2);
+		sem= equipmentService.save(sem);
+		
+		logger.info("저장시킨 Eqp는?" + sem.toString());
 		
 		Zone zone = new Zone();
-		
-		zone.setZoneName("HZONE");
+		zone.setZoneName("DZONE01");
 		zoneService.save(zone);
+		zone.setStockerSem(sem);
 		
-		shelf1.setZone(zone);
-		shelfService.save(shelf1);
+		Zone zone1 = new Zone();
+		zone1.setZoneName("DZONE02");
+		zone1.setStockerSem(sem);
+		zoneService.save(zone1);
+		
+//		for(Zone z : sem.getZones())
+//		{
+//			logger.info("니가 저장한 Zone은" + z.toString());
+//			
+//		}
 		
 		
-		logger.info("가져온 Zone 이름은" + shelf1.getZone().getZoneName());
+
+
 		
+
+
+		
+		
+
+		logger.info("EQP와  Zone 만들어 졌나?"	);
 		
 		
 		

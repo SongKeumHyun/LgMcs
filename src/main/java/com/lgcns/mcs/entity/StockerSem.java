@@ -15,7 +15,27 @@
 */
 package com.lgcns.mcs.entity;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.lgcns.mcs.constant.McsConstant.State;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
 *
@@ -30,8 +50,36 @@ import javax.persistence.Entity;
 * @Discript
 *
 */
-@Entity(name = "TB_STOCKER_SEM")
-public class StockerSem extends Equipment {
+@Entity
+@Table(name="TB_STOCKERSEM")
+@Getter
+@Setter
+@ToString
+@IdClass(EquipmentIdFK.class)
+public class StockerSem  {
+	
+	@Id
+	@Column(name = "EQUIPMENT_ID")
+	String equipmentId;
+	
+	@Column(name = "EQUIPMENT_NAME", nullable = false, unique = true)
+	String equipmentName;
+	
+	@Enumerated(EnumType.STRING)
+	private State state;
+	
+
+//	@OneToMany
+//	@JoinColumn(name = "ID")
+//	private List<Zone> zones = new ArrayList<Zone>();
+	
+	
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date installTime = new Date();
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date chagedDataTime = new Date();
 	
 
 

@@ -19,15 +19,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.lgcns.mcs.entity.Carrier;
 import com.lgcns.mcs.entity.Zone;
-import com.lgcns.mcs.repository.ICarrierRepository;
-import com.lgcns.mcs.repository.IShelfRepository;
 import com.lgcns.mcs.repository.IZoneRepository;
-
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
 *
@@ -45,6 +41,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Service
+@ToString
 public class ZoneService implements ILgMcsService {
 
 	private static final Logger logger = LoggerFactory.getLogger(ZoneService.class);

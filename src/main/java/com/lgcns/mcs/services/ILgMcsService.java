@@ -20,7 +20,6 @@ public interface ILgMcsService {
 	
 	ServiceType getServiceTeye();
 	
-	
 }
 
 
