@@ -14,12 +14,15 @@ import org.springframework.util.CollectionUtils;
 
 import com.lgcns.mcs.services.ILgMcsService.ServiceType;
 
+import lombok.AllArgsConstructor;
+
 
 /**
  * @author kumh2
  *
  */
 @Component
+@AllArgsConstructor
 public class McsServiceFactory {
 
 	private static final Logger logger = LoggerFactory.getLogger(McsServiceFactory.class);
