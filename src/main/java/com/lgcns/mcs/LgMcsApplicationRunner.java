@@ -48,12 +48,28 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 		sem.setEquipmentId("OBJ01");
 		sem.setEquipmentName("STK0100");
 		
+		sem= equipmentService.save(sem);
+		
+		logger.info("저장시킨 Eqp는?" + sem.toString());
+		
 		Zone zone = new Zone();
 		zone.setZoneName("DZONE01");
+		zoneService.save(zone);
 		zone.setStockerSem(sem);
-		zoneService.save(zone);		
 		
-		equipmentService.save(sem);
+		Zone zone1 = new Zone();
+		zone1.setZoneName("DZONE02");
+		zone1.setStockerSem(sem);
+		zoneService.save(zone1);
+		
+//		for(Zone z : sem.getZones())
+//		{
+//			logger.info("니가 저장한 Zone은" + z.toString());
+//			
+//		}
+		
+		
+
 
 		
 

@@ -53,15 +53,32 @@ public class EquipmentService implements ILgMcsService {
 		return stockerSemRepository.findOneByEquipmentName(equipmentName);
 	}
 	
-	public void save(StockerSem sem)
+	/**
+	* @Method
+	* save
+	* @Date
+	* 2022. 10. 30.
+	* @Writter
+	* kumh2
+	* @EditHistory
+	*
+	* @Discript
+	*
+	* @return StockerSem  저장이 되지 않으면 Null을 리터 함 주의 바람
+	*/
+	public StockerSem save(StockerSem sem)
 	{
+		StockerSem retStockerSem;
     	try
     	{
-    		stockerSemRepository.save(sem);
+    		retStockerSem = stockerSemRepository.save(sem);
     		logger.info("sem가 저장 되었습니다." + sem.toString());
     	}catch (Exception e) {
 			logger.error("sem 저장을 실패 하였습니다."+sem.toString()+ e.toString());
+			retStockerSem = null;
 		}
+    	
+    	return retStockerSem;
 		
 	}
 	

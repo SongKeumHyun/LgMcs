@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -57,11 +58,13 @@ public class Zone  {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "EQUIPMENT_ID")
+	@JoinColumns({@JoinColumn( name ="EQUIPMENT_ID",referencedColumnName = "EQUIPMENT_ID")})
 	private StockerSem stockerSem;
 	
 	@Column(nullable = false)
 	private String zoneName;
+	
+	
 	
 	private int maxCapa;
 	
