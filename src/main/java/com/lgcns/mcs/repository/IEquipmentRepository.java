@@ -1,11 +1,11 @@
 /**
 *
 * @FileName
-* IShelfRepository.java
+* IEquipmentRepository.java
 * @Project
 * LgMcs
 * @Date
-* 2022. 10. 17.
+* 2022. 12. 10.
 * @Writter
 * kumh2
 * @EditHistory
@@ -17,24 +17,24 @@ package com.lgcns.mcs.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.lgcns.mcs.entity.Carrier;
-import com.lgcns.mcs.entity.Shelf;
+import com.lgcns.mcs.entity.Equipment;
 
 /**
 *
 * @Package_name
 * com.lgcns.mcs.repository
 * @file_name
-* IShelfRepository.java
+* IEquipmentRepository.java
 * @Date
-* 2022. 10. 17.
+* 2022. 12. 10.
 * @EditHistory
 *
 * @Discript
 *
 */
-public interface IShelfRepository extends JpaRepository<Shelf, Long> {
+public interface IEquipmentRepository extends JpaRepository<Equipment, String> {
 	
-	Shelf findOneByShelfId(String shelfId);
+	Equipment findOneEquipmentByEquipmentName(String equipmentName);
+	
 
 }

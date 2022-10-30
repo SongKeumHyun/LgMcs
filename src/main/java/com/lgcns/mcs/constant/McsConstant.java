@@ -9,13 +9,45 @@ import lombok.Setter;
 
 @Service("MCSConstants")
 public class McsConstant {
-
-	public enum State
+	
+	public enum EquipmentState
 	{
-		Run,
-		idle,
-		Down
+		Down,
+		Idle,
+		Run
 	}
+	
+	public enum CommunicationState
+	{
+		Disconneced,
+		Connected,
+		Selected,
+		Offline,
+		OnlineLocal,
+		Online
+	}
+	
+	public enum SemState
+	{
+		Offline,
+		Online,
+		Auto,
+		pausing,
+		paused,
+	}
+	
+	public enum CarrierState
+	{
+		Installed,
+		WaitIn,
+		Transfering,
+		WaitOut,
+		Stored,
+		Alternate,
+		Completed
+	}
+
+
 	
 	public enum Direction
 	{

@@ -25,7 +25,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -69,10 +68,9 @@ public class StockerSem  {
 	private State state;
 	
 
-//	@OneToMany
-//	@JoinColumn(name = "ID")
+//	@OneToMany(mappedBy = "stockerSem")
 //	private List<Zone> zones = new ArrayList<Zone>();
-	
+//	
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
