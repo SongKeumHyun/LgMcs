@@ -46,15 +46,17 @@ public class EquipmentService implements ILgMcsService {
 	private final IEquipmentRepository equipmentRepository = null;
 	
 	private final Logger logger = LoggerFactory.getLogger(EquipmentService.class);
-	
-	public Equipment getEquipmentByEquipmentName(String equipmentName)
+
+	public Equipment getEquipmentByEquipmentId(String equipmentId )
 	{
-		return equipmentRepository.findEquimentByEquipmentName(equipmentName);
+		return equipmentRepository.findOneEquimentByEquipmentId(equipmentId);
 	}
 	
-	public void save(Equipment equipment)
+
+	
+	public Equipment save(Equipment equipment)
 	{
-		equipmentRepository.save(equipment);
+		return equipmentRepository.save(equipment);
 	}
 	
 	@Override

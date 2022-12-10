@@ -14,9 +14,7 @@
 *
 */
 package com.lgcns.mcs.entity;
-
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -72,8 +70,13 @@ public class Equipment {
     
     
     @Enumerated(EnumType.STRING)
-	private SemState semState = SemState.Offline;
+	private ControlState controlState = ControlState.Offline;
     
+    @Enumerated(EnumType.STRING)
+    private SemState semState = SemState.Init;
+    
+    @Enumerated(EnumType.STRING)
+    private EquipmentType equipmentType = EquipmentType.Stocker;
     
     private String factoryName = "";
     

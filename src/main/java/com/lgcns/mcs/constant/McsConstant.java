@@ -29,11 +29,26 @@ public class McsConstant {
 	
 	public enum SemState
 	{
+		Init,
+		Pausing,
+		Paused,
+		Auto
+	}
+	
+	public enum ControlState
+	{
 		Offline,
-		Online,
-		Auto,
-		pausing,
-		paused,
+		OnlineLocal,
+		Online
+	}
+	
+	public enum EquipmentType
+	{
+		Stocker,
+		AGV,
+		Lifter,
+		Oht,
+		Trf
 	}
 	
 	public enum CarrierState
