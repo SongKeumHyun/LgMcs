@@ -31,9 +31,29 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		logger.info("MCS Application Runner 실행"	);
+		logger.info("MCS Application Runner �행"	);
 		
 		EquipmentService eqpServivice = (EquipmentService)mcsServiceFactory.getService(ServiceType.EquipmentService);
+//		
+//		ShelfService shelfService = (ShelfService)mcsServiceFactory.getService(ServiceType.ShelfServe);
+//		ZoneService zoneService = (ZoneService)mcsServiceFactory.getService(ServiceType.ZoneService);
+//		EquipmentService equipmentService =  (EquipmentService)mcsServiceFactory.getService(ServiceType.EquipmentService);
+//		
+//		StockerSem sem = new StockerSem();
+//		sem.setEquipmentId("OBJ01");
+//		sem.setEquipmentName("STK0100");
+//		
+//		sem= equipmentService.save(sem);
+//		
+//		Zone zone1 = new Zone();
+//		zone1.setZoneName("DZONE01");
+//		zone1.setStockerSem(sem);
+//		zone1 = zoneService.save(zone1);
+//		
+//		Zone zone2 = new Zone();
+//		zone2.setZoneName("DZONE01");
+//		zone2.setStockerSem(sem);
+//		zone2 = zoneService.save(zone2);
 		
         Equipment eqp1 = new Equipment();
         eqp1.setEquipmentId("EQP1");
@@ -45,7 +65,7 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
         Equipment eqp2 =  eqpServivice.getEquipmentByEquipmentName("H2STK01");
         
         
-		logger.info("==================> 가져온 EQP는" + eqp2.toString()	);
+		logger.info("==================> 가�온 EQP + eqp2.toString()	);
         
 		
 

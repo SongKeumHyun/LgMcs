@@ -1,11 +1,11 @@
 /**
 *
 * @FileName
-* IEquipmentRepository.java
+* IZoneRepository.java
 * @Project
 * LgMcs
 * @Date
-* 2022. 12. 10.
+* 2022. 10. 17.
 * @Writter
 * kumh2
 * @EditHistory
@@ -17,24 +17,24 @@ package com.lgcns.mcs.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.lgcns.mcs.entity.Equipment;
+import com.lgcns.mcs.entity.Shelf;
+import com.lgcns.mcs.entity.Zone;
 
 /**
 *
 * @Package_name
 * com.lgcns.mcs.repository
 * @file_name
-* IEquipmentRepository.java
+* IZoneRepository.java
 * @Date
-* 2022. 12. 10.
+* 2022. 10. 17.
 * @EditHistory
 *
 * @Discript
 *
 */
-public interface IEquipmentRepository extends JpaRepository<Equipment, String> {
+public interface IZoneRepository extends JpaRepository<Zone, Long> {
 	
-	Equipment findOneEquipmentByEquipmentName(String equipmentName);
 	
 
 }
