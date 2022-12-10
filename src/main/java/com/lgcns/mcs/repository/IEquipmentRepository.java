@@ -34,7 +34,9 @@ import com.lgcns.mcs.entity.Equipment;
 */
 public interface IEquipmentRepository extends JpaRepository<Equipment, String> {
 	
-	Equipment findEquimentByEquipmentName(String equipment);
+	Equipment findOneEquimentByEquipmentName(String equipmentName);
+	
+	Equipment findOneEquimentByEquipmentId(String equipmentId);
 	
 	
 
