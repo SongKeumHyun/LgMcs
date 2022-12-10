@@ -15,7 +15,6 @@ import org.springframework.util.CollectionUtils;
 
 import com.lgcns.mcs.services.ILgMcsService.ServiceType;
 
-import lombok.AllArgsConstructor;
 
 
 /**
@@ -23,7 +22,6 @@ import lombok.AllArgsConstructor;
  *
  */
 @Service
-@AllArgsConstructor
 public class McsServiceFactory {
 
 	private static final Logger logger = LoggerFactory.getLogger(McsServiceFactory.class);
@@ -34,12 +32,12 @@ public class McsServiceFactory {
     public McsServiceFactory(List<ILgMcsService> mcsService) {
 
         if(CollectionUtils.isEmpty(mcsService)) {
-            throw new IllegalArgumentException("존재�는 Service가 �음");
+            throw new IllegalArgumentException("존재�는 Service가 �음");
         }
 
 
         for (ILgMcsService tmpMcsService : mcsService) {
-        	logger.info(" MCS Service �성가 �었�니"+ tmpMcsService.toString());
+        	logger.info(" MCS Service �성가 �었�니"+ tmpMcsService.toString());
         	
             this.mcsServices.put(tmpMcsService.getServiceTeye(), tmpMcsService);
         }

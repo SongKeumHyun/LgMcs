@@ -31,7 +31,7 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		logger.info("MCS Application Runner �행"	);
+		logger.info("MCS Application Runner �행"	);
 		
 		EquipmentService eqpServivice = (EquipmentService)mcsServiceFactory.getService(ServiceType.EquipmentService);
 //		
@@ -65,7 +65,7 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
         Equipment eqp2 =  eqpServivice.getEquipmentByEquipmentName("H2STK01");
         
         
-		logger.info("==================> 가�온 EQP + eqp2.toString()	);
+		logger.info("==================> 가�온 EQP" + eqp2.toString()	);
         
 		
 
