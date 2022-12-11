@@ -54,7 +54,7 @@ public class Zone {
 	
 	private int currentZoneCapacity = 0;
 	
-	//private ServiceStatus serviceStatus = ServiceStatus.Inservice;
+	private ServiceStatus serviceStatus = ServiceStatus.Inservice;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdTime = new Date();

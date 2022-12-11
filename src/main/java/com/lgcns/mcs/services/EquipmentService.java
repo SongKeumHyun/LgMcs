@@ -47,7 +47,7 @@ public class EquipmentService implements ILgMcsService {
 	@Autowired
 	private final IEquipmentRepository equipmentRepository = null;
 	
-	
+
 
 	public Equipment getEquipmentByEquipmentId(String equipmentId )
 	{
