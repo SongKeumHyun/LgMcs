@@ -1,18 +1,4 @@
-/**
-*
-* @FileName
-* Equipment.java
-* @Project
-* LgMcs
-* @Date
-* 2022. 12. 10.
-* @Writter
-* kumh2
-* @EditHistory
-*
-* @Discript
-*
-*/
+
 package com.lgcns.mcs.entity;
 import java.util.Date;
 import javax.persistence.Column;
@@ -34,19 +20,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
-*
-* @Package_name
-* com.lgcns.mcs.entity
-* @file_name
-* Equipment.java
-* @Date
-* 2022. 12. 10.
-* @EditHistory
-*
-* @Discript
-*
-*/
+
 @Entity
 @Getter
 @Setter
