@@ -6,6 +6,9 @@ import com.lgcns.mcs.entity.ZonePk;
 
 public interface IZoneRepository extends JpaRepository<Zone, ZonePk>{
 	
+	Zone findOneByEquipmentIdAndZoneId(String equipmentId, String zoneId);
+	
+	
 	
 	
 

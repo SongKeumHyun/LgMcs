@@ -32,12 +32,11 @@ public class McsServiceFactory {
     public McsServiceFactory(List<ILgMcsService> mcsService) {
 
         if(CollectionUtils.isEmpty(mcsService)) {
-            throw new IllegalArgumentException("존재�는 Service가 �음");
+            throw new IllegalArgumentException("존재하는 Service가 없음");
         }
 
 
         for (ILgMcsService tmpMcsService : mcsService) {
-        	logger.info(" MCS Service �성가 �었�니"+ tmpMcsService.toString());
         	
             this.mcsServices.put(tmpMcsService.getServiceTeye(), tmpMcsService);
         }

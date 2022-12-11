@@ -1,11 +1,11 @@
 /**
 *
 * @FileName
-* ZonePk.java
+* ShelfPk.java
 * @Project
 * LgMcs
 * @Date
-* 2022. 12. 10.
+* 2022. 12. 11.
 * @Writter
 * kumh2
 * @EditHistory
@@ -15,38 +15,32 @@
 */
 package com.lgcns.mcs.entity;
 
-
 import javax.persistence.Id;
-
-
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@SuppressWarnings("serial")
 @Setter
 @Getter
 @AllArgsConstructor
-public class ZonePk extends McsBasicEntity implements Comparable<ZonePk> {
-	
-	public ZonePk()
+@SuppressWarnings("serial")
+public class ShelfPk extends McsBasicEntity implements Comparable<ZonePk> {
+
+	public ShelfPk()
 	{
 		
 	}
-	
 
-	
-	@Id
-	private String zoneId;
-	
 	@Id	
 	private String equipmentId;
-
-
+	
+	@Id
+	private String shelfId;
+	
 	@Override
 	public int compareTo(ZonePk arg0) {
-
+		// TODO Auto-generated method stub
 		return 0;
 	}
 

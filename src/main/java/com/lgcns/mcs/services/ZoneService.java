@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lgcns.mcs.entity.Zone;
+import com.lgcns.mcs.entity.ZonePk;
 import com.lgcns.mcs.repository.IZoneRepository;
 import lombok.ToString;
 
@@ -20,6 +21,12 @@ public class ZoneService implements ILgMcsService{
 	private final IZoneRepository zoneRepository = null;
 	
 	
+	public Zone getZone(String equipmentId,String zoneId)
+	{
+		
+		return zoneRepository.findOneByEquipmentIdAndZoneId(equipmentId, zoneId);
+		
+	}
 	
 	public Zone save(Zone zone)
 	{
