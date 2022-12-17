@@ -35,6 +35,8 @@ public class ZonePk extends McsBasicEntity implements Comparable<ZonePk> {
 		
 	}
 	
+
+	
 	@Id	
 	private String equipmentId;
 	

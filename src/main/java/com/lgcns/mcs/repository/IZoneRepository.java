@@ -44,6 +44,9 @@ public interface IZoneRepository extends JpaRepository<Zone, ZonePk>{
 	}
 
 	
+	Zone findOneByEquipmentIdAndZoneId(String equipmentId, String zoneId);
+	
+	
 	
 	
 
