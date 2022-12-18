@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lgcns.mcs.constant.McsConstant.ServiceStatus;
 import com.lgcns.mcs.entity.Shelf;
 import com.lgcns.mcs.repository.IShelfRepository;
 
@@ -72,6 +73,11 @@ public class ShelfService implements ILgMcsService {
 		return  shelfRepository.findExistsCarrierInShelf(equipmentId);		
 	}
 	
+	
+	public List<Shelf> getShelfsByServiceState(String equipmentId, ServiceStatus serviceStatus)
+	{
+		return shelfRepository.findByEquipmentIdAndServiceStatus(equipmentId, serviceStatus);
+	}
 	
 
 
