@@ -35,7 +35,7 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		logger.info("MCS Application Runner �행"	);
+		logger.info("MCS Application Runner �행"	);
 		
 		EquipmentService eqpServivice = (EquipmentService)mcsServiceFactory.getService(ServiceType.EquipmentService);
 		ZoneService zoneService =  (ZoneService)mcsServiceFactory.getService(ServiceType.ZoneService);
@@ -63,9 +63,8 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
         Shelf shelf1 = new Shelf(eqp1.getEquipmentId(),"20101");
         shelf1.setZoneId(zone1.getZoneId());
         shelfService.save(shelf1);
-        shelfService.save(shelf2);
-        zone1.addShelf(shelf1);
-        zone1.addShelf(shelf2);
+
+
         
         Shelf shelf2 = new Shelf(eqp1.getEquipmentId(),"20102");
         shelf2.setZoneId(zone2.getZoneId());
@@ -74,31 +73,10 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
         
         List<Zone> zones =  zoneService.getZonesByEquipmentId("H2STK01");
         
-		
-		for (Shelf shelf : zone1.getShelfs()) {
-			logger.info("가�온 ZoneShlef" + shelf.toString());
-		}
-
-		
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-		
 
         
         for (Zone zone : zones) {
-        	logger.info("==================> 가�온 ZONE" + zone.toString()	);
+        	logger.info("==================> 가져온 ZONE" + zone.toString()	);
 		}
         
         logger.info("==================> Zone Count : " + zoneService.getZoneCountByEquipment("H2STK01")	);
@@ -108,7 +86,7 @@ public class LgMcsApplicationRunner implements ApplicationRunner {
         List<String> zoneIds = zoneService.getZoneIdsByEquipmentId("H2STK01");
         
         for (String zoneId : zoneIds) {
-        	logger.info("==================> 가�온 ZONE ID + zoneId	);
+        	logger.info("==================> 가져온 ZONE ID + zoneId" + zoneId	);
 		}
 		
 	}

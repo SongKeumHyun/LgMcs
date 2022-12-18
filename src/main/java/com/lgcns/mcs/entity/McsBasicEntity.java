@@ -18,6 +18,7 @@ package com.lgcns.mcs.entity;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 
+@SuppressWarnings("serial")
 public class McsBasicEntity implements Serializable {
 	
 	public McsBasicEntity()
@@ -35,6 +36,7 @@ public class McsBasicEntity implements Serializable {
 				
 			}
 			
+			@SuppressWarnings("rawtypes")
 			Class superClass = getClass().getSuperclass();
 			
 			if(superClass == null)

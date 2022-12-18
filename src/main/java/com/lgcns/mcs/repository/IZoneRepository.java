@@ -23,29 +23,8 @@ public interface IZoneRepository extends JpaRepository<Zone, ZonePk>{
 	List<String> findAllZoneIdByEquipmentId(@Param("equipmentId") String equipmentId);
 	
 	
-	/**
-	* @OverrideMethod
-	* delete
-	* @Date
-	* 2022. 12. 17.
-	* @Writter
-	* kumh2
-	* @EditHistory
-	*
-	* @Discript
-	*
-	* @SeeToOverriden 
-	* @see org.springframework.data.repository.CrudRepository#delete(java.lang.Object)
-	*/
-	@Override
-	default void delete(Zone entity) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	Zone findOneByEquipmentIdAndZoneId(String equipmentId, String zoneId);
-	
+
 	
 	
 	

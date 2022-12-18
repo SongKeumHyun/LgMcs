@@ -4,21 +4,13 @@ package com.lgcns.mcs.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-
-import org.hibernate.annotations.ForeignKey;
-
 import com.lgcns.mcs.constant.McsConstant.ServiceStatus;
 
 import lombok.AccessLevel;
@@ -51,12 +43,7 @@ public class Shelf {
 	@Id
 	private String shelfId;
 	
-	
 	private String zoneId;
-	
-	
-
-
 	
 
 	@Setter(value = AccessLevel.NONE)

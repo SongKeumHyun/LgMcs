@@ -15,6 +15,8 @@
 */
 package com.lgcns.mcs.services;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +48,33 @@ public class ShelfService implements ILgMcsService {
 	{
 		logger.info("Shelf Saved Info : " + shelf.toString());
 		return shelfRepository.save(shelf);
-		
 	}
+	
+	
+	public Shelf getShelfByCarrierId(String carrierId)
+	{
+		return shelfRepository.findOneByCarrierId(carrierId);
+	}
+	
+	public List<Shelf> getShelfByEquipmentIdAndZoneId(String equipmentId, String zoneId)
+	{
+		return shelfRepository.findByEquipmentIdAndZoneId(equipmentId, zoneId);
+	}
+	
+	public List<Shelf> getEmptyShelf(String equipmentId)
+	{
+		return shelfRepository.findEmptyCarrierInShelf(equipmentId);		
+	}
+	
+	
+	public List<Shelf> getExistsShelfByEquipment(String equipmentId)
+	{
+		return  shelfRepository.findExistsCarrierInShelf(equipmentId);		
+	}
+	
+	
+
+
 	
 	
 	
