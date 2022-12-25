@@ -1,24 +1,10 @@
-
 package com.lgcns.mcs.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
-import com.lgcns.mcs.constant.McsConstant.Direction;
-import com.lgcns.mcs.constant.McsConstant.EquipmentState;
-
-import com.lgcns.mcs.constant.McsConstant.ServiceStatus;
-
+import com.lgcns.mcs.constant.McsConstant.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,28 +14,17 @@ import lombok.ToString;
 @Setter
 @Entity
 @ToString
-@Table(name="TB_SHELF")
-@IdClass(ShelfPk.class)
-public class Shelf {
-	public Shelf()
-	{
-		
-	}
-	public Shelf(String equipmentId, String shelfId)
-	{
-		this.shelfId = shelfId;
-		this.equipmentId = equipmentId;
-		
-	}
+@Table(name="TB_UNIT")
+public class Unit {
 	
 	@Id
-	@Column(name ="EQUIPMENT_ID")
-	private String equipmentId;
+	@Column(nullable = false, unique = true)
+	public String unitId ="";
 	
-	@Id
-	private String shelfId;
+	public String ownerId;
 	
-	private String zoneId;
+    @Enumerated(EnumType.STRING)
+	public UnitType unitType = UnitType.ConveyorPort;
 	
 
 	@Setter(value = AccessLevel.NONE)
@@ -73,20 +48,25 @@ public class Shelf {
 	@Transient
 	@Setter(value = AccessLevel.NONE)
 	private boolean isOccufied = false;
-
-
+	
     @Enumerated(EnumType.STRING)
 	private ServiceStatus serviceStatus = ServiceStatus.Inservice;
     
     
+    @Enumerated(EnumType.STRING)
+	private EquipmentState equipmentState= EquipmentState.Down;
+    
+    @Enumerated(EnumType.STRING)
+    private Direction portDirection = Direction.NONE;
+    
+    @Enumerated(EnumType.STRING)
+    private InlineMouveStatus inlineMoveStatus = InlineMouveStatus.NONE;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdTime = new Date();
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date chagedDataTime = new Date();
-	
-	 
-	
+
 
 }

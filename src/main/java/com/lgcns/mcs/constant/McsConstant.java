@@ -61,21 +61,35 @@ public class McsConstant {
 		Alternate,
 		Completed
 	}
+	
+	public enum UnitType
+	{
+		MpPort,
+		MgvPort,
+		Process,
+		PorcessInlinePort,
+		AgvPort,
+		ConveyorPort,
+		Buffer
+	}
 
 
 	
 	public enum Direction
 	{
+		NONE,
 		In,
 		Out,
 		BiDirection
 	}
 	
-	public enum InlineStatus
+	public enum InlineMouveStatus
 	{
+		NONE,
 		LR,
 		UR,
 		WAIT
+
 	}
 	
 	public enum ServiceStatus

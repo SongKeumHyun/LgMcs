@@ -11,11 +11,11 @@ public interface ILgMcsService {
 	public enum ServiceType
 	{
 	    CarrierService,
-	    SubStrateService,
 	    EquipmentService,
 	    TransferService,
 	    ZoneService,
-	    ShelfServe
+	    ShelfServe,
+	    UnitService
 	}
 	
 	ServiceType getServiceTeye();
