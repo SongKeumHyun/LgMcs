@@ -28,30 +28,7 @@ public class UnitService implements ILgMcsService{
 		return unitRepository.existsById(unitId);
 	}
 	
-	public List<Unit> getMpPortByEquipment(String equipmentId)
-	{
-		return unitRepository.findAllUnitByOwnerIdAndUnitType(equipmentId, UnitType.MpPort);
-	}
 	
-	public List<Unit> getMgvPortByEquipment(String equipmentId)
-	{
-		return unitRepository.findAllUnitByOwnerIdAndUnitType(equipmentId, UnitType.MgvPort);
-	}
-	
-	public List<Unit> getPorcessInlineByEquipmentId(String equipmentId)
-	{
-		return unitRepository.findAllUnitByOwnerIdAndUnitType(equipmentId, UnitType.PorcessInlinePort);
-	}
-	
-	public Unit getUnitByUnitId(String UnitId)
-	{
-		return unitRepository.findOneUnitByUnitId(UnitId);
-	}
-	
-	public Unit getInlinePort(String unitId)
-	{
-		return unitRepository.findOneUnitByUnitIdAndUnitType(unitId, UnitType.PorcessInlinePort);
-	}
 	
 
 	public void upDate(Unit unit)

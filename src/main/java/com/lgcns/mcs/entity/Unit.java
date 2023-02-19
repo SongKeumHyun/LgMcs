@@ -14,6 +14,8 @@ import lombok.ToString;
 @Setter
 @Entity
 @ToString
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name="DTYPE")
 @Table(name="TB_UNIT")
 public class Unit {
 	
@@ -21,11 +23,11 @@ public class Unit {
 	@Column(nullable = false, unique = true)
 	public String unitId ="";
 	
-	public String ownerId;
+	@Column(nullable = false, unique = true)
+	public String equipmentId;
 	
-    @Enumerated(EnumType.STRING)
-	public UnitType unitType = UnitType.ConveyorPort;
 	
+
 
 	@Setter(value = AccessLevel.NONE)
 	@Getter(value = AccessLevel.NONE)
@@ -56,8 +58,7 @@ public class Unit {
     @Enumerated(EnumType.STRING)
 	private EquipmentState equipmentState= EquipmentState.Down;
     
-    @Enumerated(EnumType.STRING)
-    private Direction portDirection = Direction.NONE;
+
     
     @Enumerated(EnumType.STRING)
     private InlineMouveStatus inlineMoveStatus = InlineMouveStatus.NONE;
